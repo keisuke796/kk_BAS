@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://jpsaperp09.local:8001/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZC_ALP_FLIGHTBOOKING_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZC_ALP_FLIGHTBOOKINGType" sap:label="フライト予約" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" sap:filterable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="TotaledProperties" Type="Edm.String" sap:aggregation-role="totaled-properties-list" sap:is-annotation="true" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="FlightConnectionNumber" Type="Edm.String" MaxLength="4" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="フライト番号"/>
+                <Property Name="FlightDate" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false" sap:text="FlightDate_T" sap:updatable="false" sap:label="フライト日付" sap:semantics="yearmonthday"/>
+                <Property Name="FlightDate_T" Type="Edm.String" MaxLength="10" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="フライト日付 (Description)"/>
+                <Property Name="BookingNumber" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="予約番号"/>
+                <Property Name="FlightYearMonth" Type="Edm.String" MaxLength="6" sap:aggregation-role="dimension" sap:creatable="false" sap:text="FlightYearMonth_T" sap:updatable="false" sap:label="フライト年月" sap:value-list="standard" sap:semantics="yearmonth"/>
+                <Property Name="FlightYearMonth_T" Type="Edm.String" MaxLength="7" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="フライト年月 (Description)"/>
+                <Property Name="CustomerNumber" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="顧客コード"/>
+                <Property Name="Passenger" Type="Edm.String" MaxLength="25" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="乗客名"/>
+                <Property Name="CustomerCountry" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="乗客国籍"/>
+                <Property Name="CustomerType" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="法人/個人" sap:value-list="standard"/>
+                <Property Name="BookingDate" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:creatable="false" sap:text="BookingDate_T" sap:updatable="false" sap:label="予約日付" sap:semantics="yearmonthday"/>
+                <Property Name="BookingDate_T" Type="Edm.String" MaxLength="10" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="予約日付 (Description)"/>
+                <Property Name="SalesOffice" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="営業所"/>
+                <Property Name="Agency" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="旅行会社番号"/>
+                <Property Name="WeightUnit" Type="Edm.String" MaxLength="3" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="重量単位" sap:value-list="standard" sap:semantics="unit-of-measure"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:creatable="false" sap:updatable="false" sap:label="通貨" sap:value-list="standard" sap:semantics="currency-code"/>
+                <Property Name="LuggageWeight" Type="Edm.Decimal" Precision="42" Scale="4" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="LuggageWeight_F" sap:unit="WeightUnit" sap:updatable="false" sap:label="手荷物重量"/>
+                <Property Name="LuggageWeight_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="手荷物重量 (Formatted)"/>
+                <Property Name="Price" Type="Edm.Decimal" Precision="42" Scale="2" sap:aggregation-role="measure" sap:creatable="false" sap:filterable="false" sap:text="Price_F" sap:unit="Currency" sap:updatable="false" sap:label="金額"/>
+                <Property Name="Price_F" Type="Edm.String" MaxLength="60" sap:creatable="false" sap:filterable="false" sap:updatable="false" sap:label="金額 (Formatted)"/>
+            </EntityType>
+            <EntityType Name="FlightYearMonth" sap:label="フライト年月 (Master Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FlightYearMonth_ID"/>
+                </Key>
+                <Property Name="FlightYearMonth_ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:text="FlightYearMonthText" sap:label="フライト年月" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="FlightYearMonthText" Type="Edm.String" sap:label="フライト年月 (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="FlightYearMonthResult" sap:label="フライト年月 (Booked Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="FlightYearMonth_ID"/>
+                </Key>
+                <Property Name="FlightYearMonth_ID" Type="Edm.String" Nullable="false" MaxLength="6" sap:text="FlightYearMonthText" sap:label="フライト年月" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="FlightYearMonthText" Type="Edm.String" sap:label="フライト年月 (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="CustomerType" sap:label="法人/個人 (Master Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerType_ID"/>
+                </Key>
+                <Property Name="CustomerType_ID" Type="Edm.String" Nullable="false" MaxLength="1" sap:text="CustomerTypeText" sap:label="法人/個人" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="CustomerTypeText" Type="Edm.String" sap:label="法人/個人 (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="CustomerTypeResult" sap:label="法人/個人 (Booked Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerType_ID"/>
+                </Key>
+                <Property Name="CustomerType_ID" Type="Edm.String" Nullable="false" MaxLength="1" sap:text="CustomerTypeText" sap:label="法人/個人" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="CustomerTypeText" Type="Edm.String" sap:label="法人/個人 (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="WeightUnit" sap:label="重量単位 (Master Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WeightUnit_ID"/>
+                </Key>
+                <Property Name="WeightUnit_ID" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="WeightUnitText" sap:label="重量単位" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="WeightUnitText" Type="Edm.String" sap:label="重量単位 (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="WeightUnitResult" sap:label="重量単位 (Booked Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WeightUnit_ID"/>
+                </Key>
+                <Property Name="WeightUnit_ID" Type="Edm.String" Nullable="false" MaxLength="3" sap:text="WeightUnitText" sap:label="重量単位" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="WeightUnitText" Type="Edm.String" sap:label="重量単位 (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="Currency" sap:label="通貨 (Master Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Currency_ID"/>
+                </Key>
+                <Property Name="Currency_ID" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="CurrencyText" sap:label="通貨" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="CurrencyText" Type="Edm.String" sap:label="通貨 (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="CurrencyResult" sap:label="通貨 (Booked Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Currency_ID"/>
+                </Key>
+                <Property Name="Currency_ID" Type="Edm.String" Nullable="false" MaxLength="5" sap:text="CurrencyText" sap:label="通貨" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="CurrencyText" Type="Edm.String" sap:label="通貨 (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="ODataQueryAdditionalMetadata" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ODataQueryMetadata"/>
+                </Key>
+                <Property Name="ODataQueryMetadata" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ODataQueryMetadataValue_Current" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ODataQueryMetadataValueAtDefine" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZC_ALP_FLIGHTBOOKING_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZC_ALP_FLIGHTBOOKING" EntityType="ZC_ALP_FLIGHTBOOKING_CDS.ZC_ALP_FLIGHTBOOKINGType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="FlightYearMonth" EntityType="ZC_ALP_FLIGHTBOOKING_CDS.FlightYearMonth" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="FlightYearMonthResults" EntityType="ZC_ALP_FLIGHTBOOKING_CDS.FlightYearMonthResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="CustomerType" EntityType="ZC_ALP_FLIGHTBOOKING_CDS.CustomerType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="CustomerTypeResults" EntityType="ZC_ALP_FLIGHTBOOKING_CDS.CustomerTypeResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="WeightUnit" EntityType="ZC_ALP_FLIGHTBOOKING_CDS.WeightUnit" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="WeightUnitResults" EntityType="ZC_ALP_FLIGHTBOOKING_CDS.WeightUnitResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Currency" EntityType="ZC_ALP_FLIGHTBOOKING_CDS.Currency" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="CurrencyResults" EntityType="ZC_ALP_FLIGHTBOOKING_CDS.CurrencyResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="AdditionalMetadata" EntityType="ZC_ALP_FLIGHTBOOKING_CDS.ODataQueryAdditionalMetadata" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="ZC_ALP_FLIGHTBOOKING_CDS.ZC_ALP_FLIGHTBOOKINGType/FlightYearMonth" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="MasterData">
+                    <Record>
+                        <PropertyValue Property="Label" String="フライト年月 ( Master Data )"/>
+                        <PropertyValue Property="CollectionPath" String="FlightYearMonth"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="FlightYearMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="FlightYearMonth_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FlightYearMonthText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_ALP_FLIGHTBOOKING_CDS.ZC_ALP_FLIGHTBOOKINGType/FlightYearMonth" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="フライト年月"/>
+                        <PropertyValue Property="CollectionPath" String="FlightYearMonthResults"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="FlightYearMonth"/>
+                                    <PropertyValue Property="ValueListProperty" String="FlightYearMonth_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FlightYearMonthText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_ALP_FLIGHTBOOKING_CDS.ZC_ALP_FLIGHTBOOKINGType/CustomerType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="MasterData">
+                    <Record>
+                        <PropertyValue Property="Label" String="法人/個人 ( Master Data )"/>
+                        <PropertyValue Property="CollectionPath" String="CustomerType"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerType"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerType_ID"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_ALP_FLIGHTBOOKING_CDS.ZC_ALP_FLIGHTBOOKINGType/CustomerType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="法人/個人"/>
+                        <PropertyValue Property="CollectionPath" String="CustomerTypeResults"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerType"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerType_ID"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_ALP_FLIGHTBOOKING_CDS.ZC_ALP_FLIGHTBOOKINGType/WeightUnit" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="MasterData">
+                    <Record>
+                        <PropertyValue Property="Label" String="重量単位 ( Master Data )"/>
+                        <PropertyValue Property="CollectionPath" String="WeightUnit"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="WeightUnit"/>
+                                    <PropertyValue Property="ValueListProperty" String="WeightUnit_ID"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_ALP_FLIGHTBOOKING_CDS.ZC_ALP_FLIGHTBOOKINGType/WeightUnit" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="重量単位"/>
+                        <PropertyValue Property="CollectionPath" String="WeightUnitResults"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="WeightUnit"/>
+                                    <PropertyValue Property="ValueListProperty" String="WeightUnit_ID"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_ALP_FLIGHTBOOKING_CDS.ZC_ALP_FLIGHTBOOKINGType/Currency" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList" Qualifier="MasterData">
+                    <Record>
+                        <PropertyValue Property="Label" String="通貨 ( Master Data )"/>
+                        <PropertyValue Property="CollectionPath" String="Currency"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Currency"/>
+                                    <PropertyValue Property="ValueListProperty" String="Currency_ID"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_ALP_FLIGHTBOOKING_CDS.ZC_ALP_FLIGHTBOOKINGType/Currency" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="通貨"/>
+                        <PropertyValue Property="CollectionPath" String="CurrencyResults"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Currency"/>
+                                    <PropertyValue Property="ValueListProperty" String="Currency_ID"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://jpsaperp09.local:8001/sap/opu/odata/sap/ZC_ALP_FLIGHTBOOKING_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://jpsaperp09.local:8001/sap/opu/odata/sap/ZC_ALP_FLIGHTBOOKING_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

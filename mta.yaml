@@ -1,0 +1,106 @@
+_schema-version: "3.2"
+ID: KkFioriProjectTest
+version: 0.0.1
+modules:
+- name: KkFioriProjectTest-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: KkFioriProjectTest-destination-service
+    parameters:
+      content-target: true
+  - name: KkFioriProjectTest_html_repo_host
+    parameters:
+      service-key:
+        name: KkFioriProjectTest_html_repo_host-key
+  - name: uaa_KkFioriProjectTest
+    parameters:
+      service-key:
+        name: uaa_KkFioriProjectTest-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: StudentManagementTest_KkFioriProjectTest_html_repo_host
+          ServiceInstanceName: KkFioriProjectTest-html5-app-host-service
+          ServiceKeyName: KkFioriProjectTest_html_repo_host-key
+          sap.cloud.service: StudentManagementTest
+        - Authentication: OAuth2UserTokenExchange
+          Name: StudentManagementTest_uaa_KkFioriProjectTest
+          ServiceInstanceName: KkFioriProjectTest-xsuaa-service
+          ServiceKeyName: uaa_KkFioriProjectTest-key
+          sap.cloud.service: StudentManagementTest
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: KkFioriProjectTest-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: KkFioriProjectTest_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - TestCreatekktestmodule.zip
+      name: TestCreatekktestmodule
+      target-path: resources/
+    - artifacts:
+      - flightbookingtest.zip
+      name: flightbookingtest
+      target-path: resources/
+- name: TestCreatekktestmodule
+  type: html5
+  path: kk_testmodule
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: flightbookingtest
+  type: html5
+  path: flightbooking_test
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: KkFioriProjectTest-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: KkFioriProjectTest-destination-service
+    service-plan: lite
+- name: KkFioriProjectTest_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: KkFioriProjectTest-html5-app-host-service
+    service-plan: app-host
+- name: uaa_KkFioriProjectTest
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: KkFioriProjectTest-xsuaa-service
+    service-plan: application
+parameters:
+  deploy_mode: html5-repo

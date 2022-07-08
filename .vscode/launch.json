@@ -1,0 +1,478 @@
+{
+  "configurations": [
+    {
+      "name": "Start kk_testmodule",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/kk_testmodule",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#TestCreatekktestmodule-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/kk_testmodule\"}"
+      }
+    },
+    {
+      "name": "Start kk_testmodule Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/kk_testmodule",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#TestCreatekktestmodule-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/kk_testmodule\"}"
+      }
+    },
+    {
+      "name": "Start kk_testmodule Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/kk_testmodule",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#TestCreatekktestmodule-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/kk_testmodule\"}"
+      }
+    },
+    {
+      "name": "Start journalentry_report",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/journalentry_report",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#journalentryreport-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/journalentry_report\"}"
+      }
+    },
+    {
+      "name": "Start journalentry_report Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/journalentry_report",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#journalentryreport-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/journalentry_report\"}"
+      }
+    },
+    {
+      "name": "Start journalentry_report Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/journalentry_report",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#journalentryreport-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/journalentry_report\"}"
+      }
+    },
+    {
+      "name": "Start gl_line_item",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/gl_line_item",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#gllineitem-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_line_item\"}"
+      }
+    },
+    {
+      "name": "Start gl_line_item Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/gl_line_item",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#gllineitem-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_line_item\"}"
+      }
+    },
+    {
+      "name": "Start gl_line_item Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/gl_line_item",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#gllineitem-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_line_item\"}"
+      }
+    },
+    {
+      "name": "Start gl_line_item_2",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/gl_line_item_2",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#gllineitem2-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_line_item_2\"}"
+      }
+    },
+    {
+      "name": "Start gl_line_item_2 Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/gl_line_item_2",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#gllineitem2-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_line_item_2\"}"
+      }
+    },
+    {
+      "name": "Start gl_line_item_2 Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/gl_line_item_2",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#gllineitem2-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_line_item_2\"}"
+      }
+    },
+    {
+      "name": "Start gl_line_item",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/gl_line_item",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#gllineitem-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_line_item\"}"
+      }
+    },
+    {
+      "name": "Start gl_line_item Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/gl_line_item",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#gllineitem-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_line_item\"}"
+      }
+    },
+    {
+      "name": "Start gl_line_item Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/gl_line_item",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#gllineitem-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_line_item\"}"
+      }
+    },
+    {
+      "name": "Start gl_item",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/gl_item",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#glitem-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_item\"}"
+      }
+    },
+    {
+      "name": "Start gl_item Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/gl_item",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-mock.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#glitem-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_item\"}"
+      }
+    },
+    {
+      "name": "Start gl_item Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/gl_item",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#glitem-tile"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/KkFioriProjectTest/gl_item\"}"
+      }
+    }
+  ],
+  "compounds": [],
+  "version": "0.2.0",
+  "inputs": [
+    {
+      "id": "UI5MinVersion1.65.0",
+      "type": "command",
+      "command": "sap.ux.appGenerator.ui5Version",
+      "args": {
+        "minUI5Version": "1.65.0"
+      }
+    }
+  ]
+}

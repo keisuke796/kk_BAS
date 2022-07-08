@@ -1,0 +1,21 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZC_STUDENT_CDS/$metadata">
+        <edmx:Include Namespace="ZC_STUDENT_CDS" Alias="SAP"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="TestCreate">
+            <Annotations Target="SAP.ZC_STUDENTType">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>first_name</PropertyPath>
+                        <PropertyPath>last_name</PropertyPath>
+                        <PropertyPath>birthday</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
